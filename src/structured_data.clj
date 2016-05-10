@@ -37,10 +37,17 @@
   (* (width rectangle) (height rectangle)))
 
 (defn contains-point? [rectangle point]
-  :-)
+  (let [[[x1 y1] [x2 y2]] rectangle
+        [x y] point]
+    (and (<= x1 x x2) (<= y1 y y2))
+        ))
 
 (defn contains-rectangle? [outer inner]
-  :-)
+  (let [[[outer-x1 outer-y1] [outer-x2 outer-y2]] outer
+        [[inner-x1 inner-y1] [inner-x2 inner-y2]] inner]
+    (and (<= outer-x1 inner-x1 inner-x2 outer-x2)
+         (<= outer-y1 inner-y1 inner-y2 outer-y2))
+        ))
 
 (defn title-length [book]
   :-)
